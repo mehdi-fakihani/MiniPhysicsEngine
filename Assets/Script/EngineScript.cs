@@ -13,24 +13,22 @@ public class EngineScript : MonoBehaviour {
 	//On doit en aprler de ça ça va etre chelou à calculer
 	public static float dt{ get; set; }
 
-	public Transform Soleil;
+	public static GameObject[] others;
 
-	//testing les forces
-	public Transform t1;
-	private Object3D o1;
+
 
 	// Use this for initialization
 	void Start () {
 		dt = 0.2f;
 		//On get tous les Object3D
-		o1 = t1.GetComponent<Object3D>();
-		o1.updateObject (new Vector(1f,0f,0f));
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Force centripete = new Force (Vector.Zero (), Soleil.transform.position.x - o1.Position.X, Soleil.transform.position.y - o1.Position.Y, Soleil.transform.position.z - o1.Position.Z);
-		o1.updateObject(centripete.Normalized);
+		others = GameObject.FindGameObjectsWithTag ("Planet");
+		//Force centripete = new Force (Vector.Zero (), Soleil.transform.position.x - o1.Position.X, Soleil.transform.position.y - o1.Position.Y, Soleil.transform.position.z - o1.Position.Z);
+		//o1.updateObject(centripete.Normalized);
 
 		/*Ordre des actions à effectuer :
 		 * Est-ce qu'il y a une collision en cours ?

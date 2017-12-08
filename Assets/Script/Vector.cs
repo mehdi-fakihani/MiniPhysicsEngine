@@ -32,16 +32,16 @@ public class Vector {
 
     public float Dot(Vector other)
     {
-        return x * other.x +
-               y * other.y +
-               z * other.z;
+        return x * other.X +
+               y * other.Y +
+               z * other.Z;
     }
 
     public Vector Cross(Vector other)
     {
-        return new Vector(y*other.z - z*other.y,
-                          z*other.x - x*other.z,
-                          x*other.y - y*other.x);
+        return new Vector(y*other.Z - z*other.Y,
+                          z*other.X - x*other.Z,
+                          x*other.Y - y*other.X);
     }
 
     // Divides the vector by its length
@@ -63,9 +63,9 @@ public class Vector {
 
     public static bool operator == (Vector a, Vector b)
     {
-        return a.x == b.x &&
-               a.y == b.y &&
-               a.z == b.z;
+        return a.X == b.X &&
+               a.Y == b.Y &&
+               a.Z == b.Z;
     }
 
     public static bool operator != (Vector a, Vector b)
@@ -82,14 +82,14 @@ public class Vector {
 
     public static Vector operator - (Vector a)
     {
-        return new Vector(-a.x, -a.y, -a.z);
+        return new Vector(-a.X, -a.Y, -a.Z);
     }
 
     public static Vector operator - (Vector a, Vector b)
     {
-        return new Vector(a.x - b.x,
-                          a.y - b.y,
-                          a.z - b.z);
+        return new Vector(a.X - b.X,
+                          a.Y - b.Y,
+                          a.Z - b.Z);
     }
 
     public static float Dot(Vector a, Vector b)
@@ -104,10 +104,10 @@ public class Vector {
 
     public static Vector operator * (Vector u, float k)
     {
-        return new Vector(u.x * k, u.y * k, u.z * k);
+        return new Vector(u.X * k, u.Y * k, u.Z * k);
     }
     public static Vector operator / (Vector u, float k)
     {
-        return new Vector(u.x / k, u.y / k, u.z / k);
+        return new Vector(u.X / k, u.Y / k, u.Z / k);
     }
 }

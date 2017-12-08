@@ -7,6 +7,8 @@ public class Force : Vector {
 	Vector normalized{ get; set; }
 
 
+	private const double G = 6.674E-11;
+
 	//GETTERS AND SETTERS
 	public Vector Position {get{return position;} set{ position = value;}}
 	public float Length {get{return length;} set{ length = value;}}
@@ -20,6 +22,16 @@ public class Force : Vector {
 	}
 
 
-
+	public void Gravity(Object3D me, Object3D other){
+		double dist = (me.Position - other.Position).Length;
+		if (dist != 0.0) {
+			Vector value = new Vector (other.Position.X - me.Position.X, other.Position.Y - me.Position.Y, other.Position.Z - me.Position.Z);
+			value = value.Normalize ();
+			value = value * (float)(G * me.Mass * other.Mass / (dist * dist));
+			this.X = value.X;
+			this.Y = value.Y;
+			this.Z = value.Z;
+		}
+	}
 
 }
