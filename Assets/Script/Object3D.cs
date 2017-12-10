@@ -69,7 +69,8 @@ public class Object3D : MonoBehaviour{
 				total.Z = total.Z + ite_gravity.Z;
 			}
 		}
-		this.updateObject(total/Mass);
+		if(!this.name.Equals("Soleil"))
+			this.updateObject(total/Mass);
 		//this.updateObject(Vector.Zero());
 
 		/*Ordre des actions à effectuer :

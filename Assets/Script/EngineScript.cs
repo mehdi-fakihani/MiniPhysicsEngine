@@ -9,6 +9,8 @@ using UnityEngine;
  * */
 public class EngineScript : MonoBehaviour {
 
+	public float ratioSpeedRuntime;
+
 	//a definir comment le calculer correctement mais ça sera notre durée de frame
 	//On doit en aprler de ça ça va etre chelou à calculer
 	public static float dt{ get; set; }
@@ -21,7 +23,7 @@ public class EngineScript : MonoBehaviour {
 	void Start () {
 		dt = 0.2f;
 		//On get tous les Object3D
-
+		Time.timeScale = ratioSpeedRuntime;
 	}
 	
 	// Update is called once per frame
