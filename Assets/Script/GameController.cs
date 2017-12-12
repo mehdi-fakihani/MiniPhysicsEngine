@@ -21,7 +21,6 @@ public class GameController : MonoBehaviour {
 	private float yi=0f;
 	private float xf=0f;
 	private float yf=0f;
-	private bool pressed = false;
 	private bool once = true;
 	// Use this for initialization
 	void Start () {
@@ -45,8 +44,8 @@ public class GameController : MonoBehaviour {
 			Transform clone;
 			int negX = (Random.value > 0.5f ?-1:1);
 			int negZ = (Random.value > 0.5f ?-1:1);
-			float x =Random.Range(9f,25f);
-			float z =Random.Range(9f,25f);
+			float x =Random.Range(9f,15f);
+			float z =Random.Range(9f,15f);
 			clone = Instantiate (planet, new Vector3 (x*negX, 0f, z*negZ), Quaternion.identity);
 			float mat = Random.Range(0f,7.99999f);
 			clone.GetComponent<Renderer> ().material = RandMaterial(mat);

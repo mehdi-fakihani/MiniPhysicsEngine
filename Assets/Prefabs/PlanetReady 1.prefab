@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetReady: {fileID: 4861186813348592}
+  line: {fileID: 120482457073013216, guid: a72f026284dd9c94fa7c85b08b70e198, type: 2}
 --- !u!135 &135027850673129646
 SphereCollider:
   m_ObjectHideFlags: 1
