@@ -14,7 +14,7 @@ public class Object3D : MonoBehaviour{
 	public float speedY;
 	public float speedZ;
 	public float setMass;
-	public static float dt =0.2f;
+
 
     //The position corresponds to the object's center of mass
     private Vector position;
@@ -36,11 +36,11 @@ public class Object3D : MonoBehaviour{
 	// Update is called once per frame
 	void Update () {
 		Force total = new Force (Vector.Zero (), 0, 0, 0);
-        GameObject[] others = GameObject.FindGameObjectsWithTag("Planet");
+	
 
-        for (int i = 0; i < others.Length; i++) // Think to replace this old for loop with the foreach syntax
+        for (int i = 0; i < EngineScript.others.Length; i++) // Think to replace this old for loop with the foreach syntax
         {
-            Object3D other = others[i].GetComponent<Object3D>();
+			Object3D other = EngineScript.others[i].GetComponent<Object3D>();
 
             if(other != this)
 				total = Force.Gravity (this, other) + Force.ImpulseIfCollision(this, other);
@@ -52,8 +52,8 @@ public class Object3D : MonoBehaviour{
 
     public void updateObject(Vector acceleration)
     {
-		this.speed += acceleration * dt;
-		this.position += this.speed * dt;
+		this.speed += acceleration * EngineScript.dt;
+		this.position += this.speed * EngineScript.dt;
         this.transform.position = new Vector3(this.position.X, this.position.Y, this.position.Z);
     }
 }

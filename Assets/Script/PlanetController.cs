@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlanetController : MonoBehaviour {
 
-	private bool launched=false;
 
-	private float x=0f;
-	private float z=0f;
+	private float xi=0f;
+	private float yi=0f;
+	private float xf=0f;
+	private float yf=0f;
 
 	// Use this for initialization
 	void Start () {
@@ -15,16 +16,18 @@ public class PlanetController : MonoBehaviour {
 	}
 
 	public void OnMouseDown(){
-		
+		xi = Input.mousePosition.x;
+		yi = Input.mousePosition.y;
 	}
 
 	public void OnMouseUp(){
-		x = this.gameObject.transform.position.x - Input.mousePosition.x;
-		z = this.gameObject.transform.position.z - Input.mousePosition.z;
-		this.gameObject.GetComponent<Object3D> ().speedX = x;
-		this.gameObject.GetComponent<Object3D> ().speedZ = z;
+		xf =Input.mousePosition.x - xi;
+		yf =Input.mousePosition.y - yi;
+		this.gameObject.GetComponent<Object3D> ().speedX = xf/20;
+		this.gameObject.GetComponent<Object3D> ().speedZ = yf/20;
 		this.gameObject.GetComponent<Object3D> ().enabled = true;
 		this.gameObject.tag="Planet";
+		GameController.can_create = true;
 	}
 	
 	// Update is called once per frame
