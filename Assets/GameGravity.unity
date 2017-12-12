@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e70c7ea50188948bc14d27f279fa62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 4223414082685564, guid: bd0a3a854bc13f04ea5a00167add07c1, type: 2}
+  planet: {fileID: 4572665840462668, guid: e4182a81a07676f49be8bbd2ebd64cb5, type: 2}
   red: {fileID: 2100000, guid: 1940d16d6ecb4724c99e75e2d1a16f06, type: 2}
   blue: {fileID: 2100000, guid: 6568d6685d067e54b8e976070e4322c8, type: 2}
   yellow: {fileID: 2100000, guid: d8ac41d79f424384785327d8d18d8d70, type: 2}
@@ -184,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c9ca217a035c84f8a25caeda16a811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ratioSpeedRuntime: 1
 --- !u!4 &193579044
 Transform:
   m_ObjectHideFlags: 0

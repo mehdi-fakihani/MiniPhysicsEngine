@@ -16,6 +16,12 @@ public class GameController : MonoBehaviour {
 
 	public static bool can_create = true;
 
+
+	private float xi=0f;
+	private float yi=0f;
+	private float xf=0f;
+	private float yf=0f;
+	private bool pressed = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -26,13 +32,16 @@ public class GameController : MonoBehaviour {
 		GetInput ();
 	}
 
+
+
 	private void GetInput(){
-		if (Input.GetKey (KeyCode.Space) && can_create) {
-			can_create = false;
-			Transform clone;
-			clone = Instantiate (planet, new Vector3 (10f, 0f, 10f), Quaternion.identity);
-			clone.GetComponent<Renderer> ().material = RandMaterial();
-		}
+			if (Input.GetKey (KeyCode.Space) && can_create) {
+				can_create = false;
+				Transform clone;
+				clone = Instantiate (planet, new Vector3 (10f, 0f, 10f), Quaternion.identity);
+				clone.GetComponent<Renderer> ().material = RandMaterial();
+			}
+
 	}
 
 	private Material RandMaterial(){
@@ -68,3 +77,31 @@ public class GameController : MonoBehaviour {
 		}
 	}
 }
+
+
+/*if (Input.GetMouseButtonUp(0)) {
+			can_create=true;
+			pressed = false;
+		}
+		if (Input.GetMouseButtonDown(0)  || pressed) {
+			pressed = true;
+			xi = Input.mousePosition.x;
+			yi = Input.mousePosition.y;
+			if (Input.GetKey (KeyCode.Space) && can_create) {
+				can_create = false;
+				xf =Input.mousePosition.x - xi;
+				yf =Input.mousePosition.y - yi;
+				Transform clone;
+
+				clone = Instantiate (planet, new Vector3 (10f, 0f, 10f), Quaternion.identity);
+				clone.GetComponent<Renderer> ().material = RandMaterial();
+
+				clone.gameObject.GetComponent<Object3D> ().speedX = xf/20;
+				clone.gameObject.GetComponent<Object3D> ().speedZ = yf/20;
+
+				clone.gameObject.SetActive(true);
+
+
+			}
+		}
+*/

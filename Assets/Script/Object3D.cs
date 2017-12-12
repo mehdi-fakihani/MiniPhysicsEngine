@@ -26,28 +26,28 @@ public class Object3D : MonoBehaviour{
 	public Vector Speed {get{return speed;} set{ speed = value;}}
 	public float Mass {get{return mass;} set{ mass = value;}}
 
+
+
 	// Use this for initialization
 	void Start () {
 		this.Mass = setMass;
 		this.Position = new Vector (this.transform.position.x, this.transform.position.y, this.transform.position.z);
 		this.Speed = new Vector (speedX, speedY, speedZ);
+		EngineScript.others = GameObject.FindGameObjectsWithTag ("Planet");
 	}
 
 	// Update is called once per frame
 	void Update () {
-		Force total = new Force (Vector.Zero (), 0, 0, 0);
-	
+			Force total = new Force (Vector.Zero (), 0, 0, 0);
+			float len = EngineScript.others.Length;
+			for (int i = 0; i < len; i++) { // Think to replace this old for loop with the foreach syntax
+				Object3D other = EngineScript.others [i].GetComponent<Object3D> ();
+				if (other != this)
+					total = Force.Gravity (this, other) + Force.ImpulseIfCollision (this, other);
+			}
 
-        for (int i = 0; i < EngineScript.others.Length; i++) // Think to replace this old for loop with the foreach syntax
-        {
-			Object3D other = EngineScript.others[i].GetComponent<Object3D>();
-
-            if(other != this)
-				total = Force.Gravity (this, other) + Force.ImpulseIfCollision(this, other);
-		}
-
-		if(!this.name.Equals("Soleil")) //Why is there no force applied on the Sun ?
-			this.updateObject(total/Mass);
+			if (!this.name.Equals ("Soleil")) //Why is there no force applied on the Sun ?
+			this.updateObject (total / Mass);
 	}
 
     public void updateObject(Vector acceleration)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlanetController : MonoBehaviour {
 
-
+	public Transform planetReady;
 	private float xi=0f;
 	private float yi=0f;
 	private float xf=0f;
@@ -12,7 +12,7 @@ public class PlanetController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 
 	public void OnMouseDown(){
@@ -26,13 +26,14 @@ public class PlanetController : MonoBehaviour {
 		this.gameObject.GetComponent<Object3D> ().speedX = xf/20;
 		this.gameObject.GetComponent<Object3D> ().speedZ = yf/20;
 		this.gameObject.GetComponent<Object3D> ().enabled = true;
-		this.gameObject.tag="Planet";
+
 		GameController.can_create = true;
+		Destroy (this);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 
