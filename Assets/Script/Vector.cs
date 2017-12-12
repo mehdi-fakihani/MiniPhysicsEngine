@@ -19,14 +19,19 @@ public class Vector {
         this.z = z;
     }
 
+    public Vector()
+    {
+
+    }
+
 	//GETTERS AND SETTERS
 	public float X {get{return x;} set{ x = value;}}
 	public float Y {get{return y;} set{ y = value;}}
 	public float Z {get{return z;} set{ z = value;}}
 
-	public static Vector Zero()
+	public static Vector Zero() //TO REMOVE
 	{
-		return new Vector (0f, 0f, 0f);
+		return new Vector();
 	}
 
 
@@ -91,18 +96,12 @@ public class Vector {
                           a.Y - b.Y,
                           a.Z - b.Z);
     }
-
-    public static float Dot(Vector a, Vector b)
-    {
-        return a.Dot(b);
-    }
-
-    public Vector Cross(Vector a, Vector b)
-    {
-        return a.Cross(b);
-    }
-
     public static Vector operator * (Vector u, float k)
+    {
+        return new Vector(u.X * k, u.Y * k, u.Z * k);
+    }
+
+    public static Vector operator *(float k, Vector u)
     {
         return new Vector(u.X * k, u.Y * k, u.Z * k);
     }
