@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour {
 	private float xf=0f;
 	private float yf=0f;
 	private bool pressed = false;
+	private bool once = true;
 	// Use this for initialization
 	void Start () {
 		
@@ -35,17 +36,54 @@ public class GameController : MonoBehaviour {
 
 
 	private void GetInput(){
-			if (Input.GetKey (KeyCode.Space) && can_create) {
-				can_create = false;
-				Transform clone;
-				clone = Instantiate (planet, new Vector3 (10f, 0f, 10f), Quaternion.identity);
-				clone.GetComponent<Renderer> ().material = RandMaterial();
+		if (Input.GetKey (KeyCode.Space) && can_create) {
+			if (once) {
+				GameObject.Find ("Aide1").SetActive (false);
+				once = false;
+			}
+			can_create = false;
+			Transform clone;
+			int negX = (Random.value > 0.5f ?-1:1);
+			int negZ = (Random.value > 0.5f ?-1:1);
+			float x =Random.Range(9f,25f);
+			float z =Random.Range(9f,25f);
+			clone = Instantiate (planet, new Vector3 (x*negX, 0f, z*negZ), Quaternion.identity);
+			float mat = Random.Range(0f,7.99999f);
+			clone.GetComponent<Renderer> ().material = RandMaterial(mat);
+			switch ((int)mat) {
+			case 0:
+				clone.GetChild (0).GetComponent<ParticleSystem> ().startColor = Color.red;
+				break;
+			case 1:
+				clone.GetChild (0).GetComponent<ParticleSystem> ().startColor = Color.blue;
+				break;
+			case 2:
+				clone.GetChild (0).GetComponent<ParticleSystem> ().startColor = Color.yellow;
+				break;
+			case 3:
+				clone.GetChild (0).GetComponent<ParticleSystem> ().startColor = Color.green;
+				break;
+			case 4:
+				clone.GetChild (0).GetComponent<ParticleSystem> ().startColor = new Color (255f, 174f, 00f);
+				break;
+			case 5:
+				clone.GetChild (0).GetComponent<ParticleSystem> ().startColor = new Color (154f, 00f, 234f);
+				break;
+			case 6:
+				clone.GetChild (0).GetComponent<ParticleSystem> ().startColor = new Color (154f, 00f, 234f);
+				break;
+			case 7:
+				clone.GetChild (0).GetComponent<ParticleSystem> ().startColor = new Color (255f, 174f, 00f);
+				break;
+			default:
+				clone.GetChild (0).GetComponent<ParticleSystem> ().startColor = Color.red;
+				break;
 			}
 
+		}
 	}
 
-	private Material RandMaterial(){
-		float mat = Random.Range(0f,7.99999f);
+	private Material RandMaterial(float mat){
 		switch ((int)mat) {
 		case 0:
 			return red;
@@ -76,6 +114,8 @@ public class GameController : MonoBehaviour {
 			break;
 		}
 	}
+
+
 }
 
 
