@@ -148,6 +148,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e70c7ea50188948bc14d27f279fa62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planet: {fileID: 4223414082685564, guid: bd0a3a854bc13f04ea5a00167add07c1, type: 2}
+  red: {fileID: 2100000, guid: 1940d16d6ecb4724c99e75e2d1a16f06, type: 2}
+  blue: {fileID: 2100000, guid: 6568d6685d067e54b8e976070e4322c8, type: 2}
+  yellow: {fileID: 2100000, guid: d8ac41d79f424384785327d8d18d8d70, type: 2}
+  green: {fileID: 2100000, guid: 442aea9b002d9c34e9027e88e37c968e, type: 2}
+  purple: {fileID: 2100000, guid: b4f619c328ef4cb4c8a8d0188c7a8aa3, type: 2}
+  orange: {fileID: 2100000, guid: 778dc67bc8d420c40827c0e46c8de179, type: 2}
+  brown: {fileID: 2100000, guid: 3bf56c3d76609b6498ac51e2e0ae8c46, type: 2}
+  pink: {fileID: 2100000, guid: 331d0bd28024e704a8ae97396072eed1, type: 2}
 --- !u!1 &193579042
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +522,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1352897570}
   m_LocalRotation: {x: 0.00000019861236, y: -0.7071068, z: 0.7071068, w: 0.00000019861236}
-  m_LocalPosition: {x: 0, y: 392.909, z: 0.3}
+  m_LocalPosition: {x: 0, y: 52, z: 0}
   m_LocalScale: {x: 3.8861544, y: 3.8861516, z: 3.886152}
   m_Children: []
   m_Father: {fileID: 0}
@@ -552,7 +561,6 @@ MonoBehaviour:
   speedY: 0
   speedZ: 0
   setMass: 2e+12
-  <mass>k__BackingField: 0
 --- !u!23 &1864714114
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -600,7 +608,7 @@ Transform:
   m_GameObject: {fileID: 1864714112}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 33.37123, y: 33.371243, z: 33.371243}
+  m_LocalScale: {x: 3.4933376, y: 3.4933383, z: 3.4933383}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3

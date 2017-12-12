@@ -14,6 +14,7 @@ public class Object3D : MonoBehaviour{
 	public float speedY;
 	public float speedZ;
 	public float setMass;
+	public static float dt =0.2f;
 
     //The position corresponds to the object's center of mass
     private Vector position;
@@ -51,8 +52,8 @@ public class Object3D : MonoBehaviour{
 
     public void updateObject(Vector acceleration)
     {
-        this.speed += acceleration * Time.deltaTime;
-        this.position += this.speed * Time.deltaTime;
+		this.speed += acceleration * dt;
+		this.position += this.speed * dt;
         this.transform.position = new Vector3(this.position.X, this.position.Y, this.position.Z);
     }
 }
