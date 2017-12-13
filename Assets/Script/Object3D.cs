@@ -36,6 +36,7 @@ public class Object3D : MonoBehaviour{
 		this.Mass = setMass;
 		this.Position = new Vector (this.transform.position.x, this.transform.position.y, this.transform.position.z);
 		this.Speed = new Vector (speedX, speedY, speedZ);
+		this.radius = setRadius;
 		//EngineScript.others = GameObject.FindGameObjectsWithTag ("Planet");
 	}
 
@@ -47,8 +48,9 @@ public class Object3D : MonoBehaviour{
                 if (other != this)
                 {
                     total = Force.Gravity(this, other);
-                    if (EngineScript.collisionsActivated)
+				if (EngineScript.collisionsActivated)
                         total += Force.ImpulseIfCollision(this, other);
+				print ((this.position-other.position).Length);
                 }
 			}
 

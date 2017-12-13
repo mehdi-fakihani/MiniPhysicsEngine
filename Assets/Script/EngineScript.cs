@@ -13,9 +13,12 @@ public class EngineScript : MonoBehaviour {
 	//a definir comment le calculer correctement mais ça sera notre durée de frame
 	//On doit en parler de ça ça va etre chelou à calculer
 	public static float dt{ get; set; }
+	public bool coll = false;
+	public bool grav = false;
 
 	public static GameObject[] others;
     public static bool collisionsActivated = true;
+	public static bool GravityActivated = false;
     public static float e = 1;
 
 
@@ -23,7 +26,8 @@ public class EngineScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		dt = 0.2f;
-	
+		collisionsActivated = coll;
+		GravityActivated = grav;
 	}
 	
 	// Update is called once per frame

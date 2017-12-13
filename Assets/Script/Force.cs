@@ -31,7 +31,7 @@ public class Force : Vector {
     /*Returns the gravity force caused by other to apply on me*/
     public static Force Gravity(Object3D me, Object3D other){
 		double dist = (other.Position - me.Position).Length;
-        if (dist != 0.0)
+		if (dist != 0.0 || EngineScript.GravityActivated)
         {
             Vector direction = (other.Position - me.Position).Normalize();
             Vector result = direction * (float)(G * me.Mass * other.Mass / (dist * dist));

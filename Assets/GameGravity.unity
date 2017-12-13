@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c9ca217a035c84f8a25caeda16a811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coll: 0
+  grav: 1
 --- !u!4 &193579044
 Transform:
   m_ObjectHideFlags: 0
@@ -775,6 +777,7 @@ MonoBehaviour:
   speedY: 0
   speedZ: 0
   setMass: 2e+12
+  setRadius: 0
 --- !u!23 &1864714114
 MeshRenderer:
   m_ObjectHideFlags: 0
