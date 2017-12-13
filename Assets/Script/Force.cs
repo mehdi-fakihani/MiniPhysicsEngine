@@ -44,7 +44,16 @@ public class Force : Vector {
     /*Returns the impulse to apply on me if it's in collision with other*/
     public static Force ImpulseIfCollision(Object3D me, Object3D other)
     {
-        return new Force();
+        float distance = (me.Position - other.Position).Length;
+        Vector normal = (me.Position - other.Position).Normalize();
+        Vector relativeSpeed = me.Speed - other.Speed;
+        if (distance <= me.Radius + other.Radius)
+        {
+            Vector impulse = -1 * ((1.0f + EngineScript.e) * relativeSpeed.Dot(normal) / (1.0f / me.Mass + 1.0f / other.Mass)) * normal;
+            return new Force(impulse.X, impulse.Y, impulse.Z);
+        }
+        else
+            return new Force();
     }
 
     ///////////////////////////////////////////

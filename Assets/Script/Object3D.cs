@@ -14,17 +14,20 @@ public class Object3D : MonoBehaviour{
 	public float speedY;
 	public float speedZ;
 	public float setMass;
+    public float setRadius;
 
 
     //The position corresponds to the object's center of mass
     private Vector position;
     private Vector speed;
     private float mass;
+    private float radius;
 
 	//GETTERS AND SETTERS
 	public Vector Position {get{return position;} set{ position = value;}}
 	public Vector Speed {get{return speed;} set{ speed = value;}}
 	public float Mass {get{return mass;} set{ mass = value;}}
+    public float Radius { get { return radius; } set { radius = value; } }
 
 
 
@@ -39,14 +42,16 @@ public class Object3D : MonoBehaviour{
 	// Update is called once per frame
 	void Update () {
 			Force total = new Force (Vector.Zero (), 0, 0, 0);
-			float len = EngineScript.others.Length;
 			for (int i = 0; i < EngineScript.others.Length; i++) { // Think to replace this old for loop with the foreach syntax
 				Object3D other = EngineScript.others [i].GetComponent<Object3D> ();
-				if (other != this)
-					total = Force.Gravity (this, other) + Force.ImpulseIfCollision (this, other);
+                if (other != this)
+                {
+                    total = Force.Gravity(this, other);
+                    if (EngineScript.collisionsActivated)
+                        total += Force.ImpulseIfCollision(this, other);
+                }
 			}
 
-			if (!this.name.Equals ("Soleil")) //Why is there no force applied on the Sun ?
 			this.updateObject (total / Mass);
 	}
 

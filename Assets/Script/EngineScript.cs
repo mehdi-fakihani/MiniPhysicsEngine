@@ -11,10 +11,12 @@ public class EngineScript : MonoBehaviour {
 
 
 	//a definir comment le calculer correctement mais ça sera notre durée de frame
-	//On doit en aprler de ça ça va etre chelou à calculer
+	//On doit en parler de ça ça va etre chelou à calculer
 	public static float dt{ get; set; }
 
 	public static GameObject[] others;
+    public static bool collisionsActivated = true;
+    public static float e = 1;
 
 
 
